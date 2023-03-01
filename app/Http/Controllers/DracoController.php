@@ -1,86 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Draco;
+
 use App\Http\Requests\StoreDracoRequest;
-use App\Http\Requests\UpdateDracoRequest;
 
 class DracoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function __Construct (Draco $draco){
+        $this->Draco = $draco;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    function getDracoDaily(){
+        return $this->Draco->whereRaw('`created_at` > (NOW() - INTERVAL 1 DAY)')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreDracoRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreDracoRequest $request)
-    {
-        //
+    function getDracoWeekly(){
+        return $this->Draco->whereRaw('`created_at` > (NOW() - INTERVAL 7 DAY)')->get();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Draco  $draco
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Draco $draco)
-    {
-        //
+    function getDracoMonthly(){
+        return $this->Draco->whereRaw('`created_at` > (NOW() - INTERVAL 30 DAY)')->get();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Draco  $draco
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Draco $draco)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateDracoRequest  $request
-     * @param  \App\Models\Draco  $draco
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateDracoRequest $request, Draco $draco)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Draco  $draco
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Draco $draco)
-    {
-        //
+    function getDracoAll(){
+        return $this->Draco->all();
     }
 }

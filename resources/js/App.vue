@@ -20,11 +20,21 @@
 
             <div  class="panelItem">
                 <label for="dracoUsd">
-                    <h3>
-                        USD
-                    </h3>
+                    <div class="switch" @click="monetaryExchange" name="dracoInR">
+                        <span class="switch-opt switch-opt-on">
+                            USD
+                        </span>
+                        <span class="switch-opt">
+                            R$
+                        </span>
+                    </div>
                 </label>
-                <input type="number" name="dracoUsd" :value="dracoUsd" disabled>
+                <input type="number" name="dracoUsd" :value="
+                    dracoInR ?
+                        (Math.floor((dracoUsd * usdToReal) * 100) / 100).toFixed(2)
+                    :
+                        dracoUsd"
+                disabled>
             </div>
         </div>
 
@@ -45,11 +55,21 @@
 
             <div  class="panelItem">
                 <label for="hydraUsd">
-                    <h3>
-                        USD
-                    </h3>
+                    <div class="switch" @click="monetaryExchange" name="hydraInR">
+                        <span class="switch-opt switch-opt-on">
+                            USD
+                        </span>
+                        <span class="switch-opt">
+                            R$
+                        </span>
+                    </div>
                 </label>
-                <input type="number" name="hydraUsd" :value="hydraUsd" disabled>
+                <input type="number" name="hydraUsd" :value="
+                    hydraInR ?
+                        (Math.floor((hydraUsd * usdToReal) * 100) / 100).toFixed(2)
+                    :
+                        hydraUsd"
+                disabled>
             </div>
         </div>
 
@@ -111,7 +131,10 @@
                 dracoUsd: 0,
                 hydraUsd: 0,
                 dracoChartRoute: "api/getDracoDaily",
-                hydraChartRoute: "api/getHydraDaily"
+                hydraChartRoute: "api/getHydraDaily",
+                dracoInR: false,
+                hydraInR: false,
+                usdToReal: 0
             }
         },
         async created (){
@@ -119,9 +142,14 @@
             //actual prices
             const responseDraco = await fetch('https://api.mir4global.com/wallet/prices/draco/lastest', { method: "POST" });
             const responseHydra = await fetch('https://api.mir4global.com/wallet/prices/hydra/lastest', { method: "POST" });
+            const realToUsd = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL');
+
 
             const dataDraco = await responseDraco.json();
             const dataHydra = await responseHydra.json();
+            const dataRealToUsd = await realToUsd.json();
+
+            this.usdToReal = dataRealToUsd.USDBRL.ask;
             
             this.dracoWemix = dataDraco.Data.DracoPriceWemix;
             this.hydraWemix = dataHydra.Data.HydraPriceWemix;
@@ -131,9 +159,8 @@
 
             this.usd = dataDraco.Data.USDWemixRate;
 
-            this.dracoUsd = (Math.floor((this.usd * this.dracoWemix) * 100) /100).toFixed(2);
-            this.hydraUsd = (Math.floor((this.usd * this.hydraWemix) * 100) /100).toFixed(2);
-            console.log(this.usd * this.hydraWemix)
+            this.dracoUsd = (Math.floor((this.usd * this.dracoWemix) * 100) / 100).toFixed(2);
+            this.hydraUsd = (Math.floor((this.usd * this.hydraWemix) * 100) / 100).toFixed(2);
         },
         methods: {
             attDracoValues(e){
@@ -149,6 +176,43 @@
             },
             attHydraChartRoute(e){
                 this.hydraChartRoute =  "api/getHydra" + e.target.value;
+            },
+            monetaryExchange(e){
+
+                let selectedOpt;
+                let unselectedOpt;
+
+                for (const child of e.target.parentElement.children){
+                    let isSelected = false;
+                    for (const className of child.classList){
+                        
+                        if (className === "switch-opt-on"){
+                            isSelected = true;
+                        }
+                    }
+
+                    if(isSelected){
+                        selectedOpt = child;
+                    } else {
+                        unselectedOpt = child;
+                    }
+                }
+
+                selectedOpt.classList.remove("switch-opt-on");
+                unselectedOpt.classList.add("switch-opt-on");
+
+                switch (e.target.parentElement.getAttribute("name")){
+                    case 'dracoInR':
+                        this.dracoInR = !this.dracoInR;
+                        break;
+
+                    case 'hydraInR':
+                        this.hydraInR = !this.hydraInR;
+                        break;
+                }
+            },
+            valueConversion(coin){
+                console.log(coin)
             }
         }
     }
@@ -167,12 +231,6 @@
     /* Firefox */
     input[type=number] {
     -moz-appearance: textfield;
-    }
-
-    h3{
-        font-size: 1.3rem;
-        font-weight: 900;
-        height: 1.5rem;
     }
 
     .container{
@@ -259,5 +317,27 @@
 
     .chart > div > div > select > option{
         color: #000000;
+    }
+
+    .switch{
+        background-color: rgb(255,255,255,0.5);
+        font-size: 1.3rem;
+        font-weight: 900;
+        border-radius: 1rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .switch-opt{
+        padding: 0rem 2rem 0rem 2rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .switch-opt-on{
+        background-color: rgb(0, 0, 0, 0.2);
     }
 </style>

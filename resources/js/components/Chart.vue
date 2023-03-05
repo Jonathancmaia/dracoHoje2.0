@@ -1,5 +1,5 @@
 <template>
-  <img class="loading" src="/images/loading.gif" v-if="!loaded"/>
+  <img class="loading" src="/public/images/loading.gif" v-if="!loaded"/>
   <Line v-if="loaded" :data="data" :options="options" />
 </template>
 

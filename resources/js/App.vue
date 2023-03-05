@@ -5,18 +5,18 @@
 
         <div id="dracoPanel">
             <div class="panelItem">
-                <label for="draco"><img src="/images/draco.webp"></label>
+                <label for="draco"><img src="/public/images/draco.webp"></label>
                 <input type="number" name="draco" value="1" @keyup="attDracoValues">
             </div>
 
-            <img src="/images/exchange.png" class="exchange"/>
+            <img src="/public/images/exchange.png" class="exchange"/>
 
             <div  class="panelItem">
-                <label for="dracoWemix"><img src="/images/wemix.webp"></label>
+                <label for="dracoWemix"><img src="/public/images/wemix.webp"></label>
                 <input type="number" name="dracoWemix" :value="dracoWemix" disabled>
             </div>
 
-            <img src="/images/exchange.png" class="exchange"/>
+            <img src="/public/images/exchange.png" class="exchange"/>
 
             <div  class="panelItem">
                 <label for="dracoUsd">
@@ -40,18 +40,18 @@
 
         <div id="hydraPanel">
             <div class="panelItem">
-                <label for="draco"><img src="/images/hydra.webp"></label>
+                <label for="draco"><img src="/public/images/hydra.webp"></label>
                 <input type="number" name="draco" value="1" @keyup="attHydraValues">
             </div>
 
-            <img src="/images/exchange.png" class="exchange"/>
+            <img src="/public/images/exchange.png" class="exchange"/>
             
             <div  class="panelItem">
-                <label for="hydraWemix"><img src="/images/wemix.webp"></label>
+                <label for="hydraWemix"><img src="/public/images/wemix.webp"></label>
                 <input type="number" name="hydraWemix" :value="hydraWemix" disabled>
             </div>
 
-            <img src="/images/exchange.png" class="exchange"/>
+            <img src="/public/images/exchange.png" class="exchange"/>
 
             <div  class="panelItem">
                 <label for="hydraUsd">
@@ -76,7 +76,7 @@
         <div class="chart-container">
             <div class="chart">
                 <div>
-                    <img src="/images/draco.webp">
+                    <img src="/public/images/draco.webp">
                     <div>
                         <select name="dracoTime" @change="attDracoChartRoute">
                             <option value="Daily" selected>Diário</option>
@@ -98,7 +98,7 @@
             </div>
             <div class="chart">
                 <div>
-                    <img src="/images/hydra.webp">
+                    <img src="/public/images/hydra.webp">
                     <div>
                         <select name="hydraTime" @change="attHydraChartRoute">
                             <option value="Daily" selected>Diário</option>

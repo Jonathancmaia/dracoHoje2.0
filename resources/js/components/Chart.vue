@@ -1,6 +1,14 @@
 <template>
+  <img class="loading" src="/images/loading.gif" v-if="!loaded"/>
   <Line v-if="loaded" :data="data" :options="options" />
 </template>
+
+<style>
+  .loading{
+    width: 5rem;
+    height: 5rem;
+  }
+</style>
 
 <script>
 import {

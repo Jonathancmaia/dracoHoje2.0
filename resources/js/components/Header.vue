@@ -28,15 +28,14 @@ window.addEventListener("scroll", function() {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-image: url('/images/banner.webp');
         background-size: cover;
         background-position: center center;
+        background-image: url('/public/images/banner.png');
         width: 100%;
         height: 70vh;
     }
 
     #title {
-        
         width: 100%;
         height: 100%;
         display: flex;

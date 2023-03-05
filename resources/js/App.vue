@@ -78,18 +78,23 @@
                 <div>
                     <img src="/images/draco.webp">
                     <div>
-                    <select name="dracoTime" @change="attDracoChartRoute">
-                        <option value="Daily" selected>Diário</option>
-                        <option value="Weekly">Semanal</option>
-                        <option value="Monthly">Mensal</option>
-                        <option value="All">Completo</option>
-                    </select>
+                        <select name="dracoTime" @change="attDracoChartRoute">
+                            <option value="Daily" selected>Diário</option>
+                            <option value="Weekly">Semanal</option>
+                            <option value="Monthly">Mensal</option>
+                            <option value="All">Completo</option>
+                        </select>
+                    </div>
                 </div>
-                </div>
-                
+
                 <div>
                     <Chart :route=dracoChartRoute label="Draco" />
                 </div>
+
+                <article>
+                    <h3>O que é Draco?</h3>
+                    DRACO é uma moeda virtual que apresenta um conceito inovador ao permitir que os ativos do jogo sejam negociados de forma livre e independente fora do ambiente do jogo. A moeda tem seu valor intrínseco garantido pelo valor dos recursos que são obtidos dentro do próprio jogo. Essa característica torna a moeda uma ferramenta importante para os jogadores que desejam comprar ou vender itens do jogo fora do ambiente virtual. Além disso, ela oferece uma nova forma de armazenamento de ativos e uma maneira de investir no universo do jogo.
+                </article>
             </div>
             <div class="chart">
                 <div>
@@ -103,9 +108,15 @@
                         </select>
                     </div>
                 </div>
+
                 <div>
                     <Chart v-bind:route=hydraChartRoute label="Hydra"/>
                 </div>
+
+                <article>
+                    <h3>O que é Hydra?</h3>
+                    HYDRA (HYD) é uma versão refinada da moeda virtual DRACO, que pode ser produzida ao combinar DRACOs e Septarias, que são obtidos no Santuário de Hydra dentro do jogo MIR4. Há uma relação complexa de correlação entre os valores de DRACO e HYDRA, em que o valor de um afeta o valor do outro. Basicamente, HYDRA é uma opção de investimento de alto rendimento para jogadores que desejam usar DRACO para produzi-la.
+                </article>
             </div>
         </div>
     </div>
@@ -230,13 +241,12 @@
 
     /* Firefox */
     input[type=number] {
-    -moz-appearance: textfield;
+        -moz-appearance: textfield;
     }
 
     .container{
         background-image: linear-gradient(90deg, #000022, #060750, #000022);
         color: #ffffff;
-        min-height: 100vh;
         font-family: 'Montserrat', sans-serif;
         display: flex;
         align-items: center;
@@ -249,6 +259,17 @@
         justify-content: space-around;
         align-items: center;
         margin: 1rem 0rem 1rem 0rem;
+    }
+
+    article{
+        padding: 0.5rem 0 0.5rem 0;
+        font-size: 0.8rem;
+    }
+
+    h3{
+        font-weight: 900;
+        font-size: 1rem;;
+        padding: 0.5rem 0 0.5rem 0;
     }
 
     .panelItem{
@@ -339,5 +360,32 @@
 
     .switch-opt-on{
         background-color: rgb(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 993px){
+        #dracoPanel, #hydraPanel{
+            flex-direction: column;
+        }
+
+        #hydraPanel{
+            margin-top: 2rem;
+        }
+
+        .panelItem{
+            margin: 0.5rem 0rem 0.5rem 0rem;
+            width: 100%;
+        }
+
+        .panelItem > input{
+            width: 40vw;
+        }
+
+        .exchange{
+            transform: rotate(90deg);
+        }
+
+        .chart-container{
+        width: 100%;
+    }
     }
 </style>

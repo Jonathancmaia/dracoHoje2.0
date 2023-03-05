@@ -42,7 +42,7 @@ window.addEventListener("scroll", function() {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-image: url('/images/hydra&draco.webp');
+        background-image: url('/public/images/hydra&draco.webp');
         background-size: 30%;
         background-position: 75% 50%;
         background-repeat: no-repeat;

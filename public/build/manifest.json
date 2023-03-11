@@ -8,7 +8,7 @@
     "src": "public/images/hydra&draco.webp"
   },
   "resources/js/app.css": {
-    "file": "assets/app-0efc62e5.css",
+    "file": "assets/app-e5af3ab7.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -17,9 +17,9 @@
       "assets/hydra_draco-0291db38.webp"
     ],
     "css": [
-      "assets/app-0efc62e5.css"
+      "assets/app-e5af3ab7.css"
     ],
-    "file": "assets/app-a459957b.js",
+    "file": "assets/app-98e28295.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

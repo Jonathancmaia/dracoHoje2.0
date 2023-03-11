@@ -341,7 +341,7 @@
     }
 
     .switch{
-        background-color: rgb(255,255,255,0.5);
+        background-color: rgb(255,255,255,0.3);
         font-size: 1.3rem;
         font-weight: 900;
         border-radius: 1rem;
@@ -349,6 +349,7 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        color: rgb(0,0,0,0.5);
     }
 
     .switch-opt{
@@ -359,7 +360,9 @@
     }
 
     .switch-opt-on{
-        background-color: rgb(0, 0, 0, 0.2);
+        background-color: rgb(255,255,255,0.5);
+        border-radius: 1rem;
+        color: #FFFFFF;
     }
 
     @media (max-width: 993px){

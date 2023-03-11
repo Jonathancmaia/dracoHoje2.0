@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Bem-vindo ao nosso site de conversão de criptomoedas Hydra e Draco para Dólar e Real, com uma funcionalidade adicional de gráficos de histórico de preços. Com nossas ferramentas simples e fáceis de usar, você pode facilmente converter os valores de Hydra e Draco em Dólar ou Real e vice-versa, em tempo real."/>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6390352986614792"
+        crossorigin="anonymous">
+        </script>
         <title>Draco Hoje</title>
         @vite('resources/js/app.js')
     </head>

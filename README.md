@@ -1,43 +1,36 @@
-# Crypto Tracker
+# Draco Hoje
 
-O Crypto Tracker é um site desenvolvido em Laravel e Vue.js que exibe os valores atuais em real e dólar de duas criptomoedas chamadas de Draco e Hydra. Além disso, o site tem a funcionalidade de gravar os valores dessas moedas de 30 em 30 minutos em um banco de dados para gerar um gráfico.
+Draco hoje is a website developed in Laravel and Vue.js that displays the current values in Brazilian real and US dollars of two coins named Draco and Hydra (From Mir4). The site also has the functionality of saving the values of these currencies every 30 minutes in a database to generate some graphs.
 
-## Funcionalidades
+## Features
 
-- Exibição dos valores atuais em real e dólar de Draco e Hydra
-- Gravação dos valores das moedas de 30 em 30 minutos em um banco de dados
-- Geração de gráfico com os valores das moedas ao longo do tempo
+- Display of current values in Brazilian real and US dollars of Draco and Hydra
+- Saving of currency values every 30 minutes in a database
+- Generation of a graph with the currency values over time
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Laravel
 - Vue.js
-- Banco de dados (a definir)
+- Mysql
 
-## Instalação
+## Installation in development enviroment
 
-1. Clone o repositório
-2. Instale as dependências do Laravel e do Vue.js
-3. Configure o banco de dados
-4. Execute as migrations para criar as tabelas no banco de dados
-5. Inicie o servidor do Laravel e do Vue.js
+1. Clone the repository
+2. Run "artisan install" and "npm i" to install all the dependencies
+3. Configure the database
+4. Run the "php artisan migrate" to create tables in the database
+5. Start the Laravel and Vue.js servers with "php artisan serve" and "npm run dev" commands
+6. Start the Laravel Scheduling with "php artisan schedule:work" command
 
-## Como Usar
+## See this in production
 
-1. Acesse o site através do seu navegador
-2. Visualize os valores atuais de Draco e Hydra
-3. A cada 30 minutos, os valores das moedas serão gravados no banco de dados
-4. Para visualizar o gráfico com os valores das moedas ao longo do tempo, acesse a página "Gráfico"
+- This project is in production enviroment in: https://www.dracohoje.com
 
-## Contribuição
+## Contribution
 
-Este projeto é aberto para contribuições. Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para criar uma issue ou enviar um pull request.
+This project is open for contributions. If you encounter any issues or have suggestions for improvements, feel free to create an issue or send a pull request.
 
-## Licença
+## License
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
-
-##Run
--npm run dev
--php artisan serve
--php artisan schedule:work
+This project is licensed under the MIT License. See the LICENSE file for more information.

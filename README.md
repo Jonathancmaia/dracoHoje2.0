@@ -14,7 +14,7 @@ Draco hoje is a website developed in Laravel and Vue.js that displays the curren
 - Vue.js
 - Mysql
 
-## Installation in development enviroment
+## Installation in dev enviroment
 
 1. Clone the repository
 2. Run "artisan install" and "npm i" to install all the dependencies

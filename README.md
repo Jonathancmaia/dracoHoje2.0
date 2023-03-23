@@ -26,11 +26,3 @@ Draco hoje is a website developed in Laravel and Vue.js that displays the curren
 ## See this in production
 
 - This project is in production enviroment in: https://www.dracohoje.com
-
-## Contribution
-
-This project is open for contributions. If you encounter any issues or have suggestions for improvements, feel free to create an issue or send a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more information.

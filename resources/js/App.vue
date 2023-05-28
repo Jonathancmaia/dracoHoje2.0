@@ -311,7 +311,7 @@
     }
 
     .chart {
-        margin: 5rem;
+        margin: 1rem;
     }
 
     .chart > div {

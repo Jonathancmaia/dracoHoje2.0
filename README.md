@@ -17,7 +17,7 @@ Draco hoje is a website developed in Laravel and Vue.js that displays the curren
 ## Installation in dev enviroment
 
 1. Clone the repository
-2. Run "artisan install" and "npm i" to install all the dependencies
+2. Run "composer install" and "npm i" to install all the dependencies
 3. Configure the database
 4. Run the "php artisan migrate" to create tables in the database
 5. Start the Laravel and Vue.js servers with "php artisan serve" and "npm run dev" commands

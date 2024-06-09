@@ -66,4 +66,25 @@ class DracoController extends Controller
     function getDracoAll(){
         return $this->compressData(null);
     }
+
+    function getDracoNow(){
+        $url = 'https://api.mir4global.com/wallet/prices/draco/lastest';
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            $error_msg = curl_error($ch);
+            curl_close($ch);
+            return response()->json(['error' => $error_msg], 500);
+        }
+
+        curl_close($ch);
+        $data = json_decode($response, true);
+
+        return response()->json($data);
+    }
 }

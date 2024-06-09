@@ -151,10 +151,9 @@
         async created (){
 
             //actual prices
-            const responseDraco = await fetch('https://api.mir4global.com/wallet/prices/draco/lastest', { method: "POST" });
-            const responseHydra = await fetch('https://api.mir4global.com/wallet/prices/hydra/lastest', { method: "POST" });
+            const responseDraco = await fetch('api/getDracoNow', { method: "GET" });
+            const responseHydra = await fetch('api/getHydraNow', { method: "GET" });
             const realToUsd = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL');
-
 
             const dataDraco = await responseDraco.json();
             const dataHydra = await responseHydra.json();
